@@ -1,3 +1,3 @@
-import getGrid from "./core/grid";
+import getGrid from "./grid";
 
 export default getGrid;
