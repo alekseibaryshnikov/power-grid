@@ -8,17 +8,22 @@ declare namespace Grid {
   export type ColDef = {
     field: string;
     title: string;
-    type?: DataType;
+    type: DataType;
+    noFormat?: boolean;
+    valueGetter?: CellFunction;
+    valueFormatter?: CellFunction;
   };
+
+  export type CellFunction = (value: unknown) => string;
 
   export type DataRow = Record<string, unknown>;
 
-  export enum DataType {
-    Integer = "Integer",
-    Float = "Float",
-    Decimal = "Decimal",
-    String = "String",
-    Boolean = "Boolean",
-    Date = "Date"
-  }
+  export type DataType =
+    | "Integer"
+    | "Float"
+    | "Decimal"
+    | "String"
+    | "Boolean"
+    | "Date"
+    | "Object";
 }

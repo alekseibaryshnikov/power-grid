@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "declaration": true
+    "declaration": true,
+    "esModuleInterop": true
   }
 }

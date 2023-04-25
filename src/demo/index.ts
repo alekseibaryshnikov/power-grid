@@ -4,66 +4,52 @@ import getGrid from "../lib";
 
 const container = document.getElementById("root");
 
-// Here is some generated data
-const data = [
-  {
-    id: 1,
-    name: "John Doe",
-    age: 25,
-    address: "123 Main St",
-    city: "New York",
-    state: "NY",
-    zip: "10001"
-  },
-  {
-    id: 2,
-    name: "Jane Doe",
-    age: 30,
-    address: "456 Main St",
-    city: "New York",
-    state: "NY",
-    zip: "10001"
-  },
-  {
-    id: 3,
-    name: "John Smith",
-    age: 35,
-    address: "789 Main St",
-    city: "New York",
-    state: "NY",
-    zip: "10001"
-  }
-];
+const data = new Array(1000).fill(0).map((_, index) => ({
+  id: index,
+  name: window.crypto.randomUUID().slice(0, 8),
+  age: window.crypto.getRandomValues(new Uint8Array(1)).slice(0, 2),
+  address: window.crypto.randomUUID().slice(0, 8),
+  city: window.crypto.randomUUID().slice(0, 8),
+  state: window.crypto.randomUUID().slice(0, 2),
+  zip: window.crypto.randomUUID().slice(0, 8)
+}));
 
 // Make column definitions regarding the data and Grid.ColDef type
-const colDefs = [
+const colDefs: Grid.ColDef[] = [
   {
     field: "id",
-    title: "ID"
+    title: "ID",
+    type: "Integer"
   },
   {
     field: "name",
-    title: "Name"
+    title: "Name",
+    type: "String"
   },
   {
     field: "age",
-    title: "Age"
+    title: "Age",
+    type: "Integer"
   },
   {
     field: "address",
-    title: "Address"
+    title: "Address",
+    type: "String"
   },
   {
     field: "city",
-    title: "City"
+    title: "City",
+    type: "String"
   },
   {
     field: "state",
-    title: "State"
+    title: "State",
+    type: "String"
   },
   {
     field: "zip",
-    title: "Zip"
+    title: "Zip",
+    type: "String"
   }
 ];
 
