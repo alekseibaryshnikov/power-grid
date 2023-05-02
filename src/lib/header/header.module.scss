@@ -4,4 +4,21 @@
 
 .headerCell {
   display: table-cell;
+  vertical-align: middle;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+}
+
+.sortIcon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+
+  &::after {
+    content: var(--upArrow);
+  }
 }

@@ -12,6 +12,7 @@ declare namespace Grid {
     noFormat?: boolean;
     valueGetter?: CellFunction;
     valueFormatter?: CellFunction;
+    isSortable?: boolean;
   };
 
   export type CellFunction = (value: unknown) => string;
@@ -26,4 +27,12 @@ declare namespace Grid {
     | "Boolean"
     | "Date"
     | "Object";
+
+  export type StateManager = {
+    rawData: Grid.DataRow[];
+    data: Grid.DataRow[];
+    sorting: "asc" | "desc" | null;
+    filter: Record<string, unknown> | null;
+    grouping: Record<string, unknown> | null;
+  };
 }

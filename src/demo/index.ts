@@ -29,7 +29,8 @@ const colDefs: Grid.ColDef[] = [
   {
     field: "age",
     title: "Age",
-    type: "Integer"
+    type: "Integer",
+    isSortable: true
   },
   {
     field: "address",

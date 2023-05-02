@@ -19,7 +19,29 @@ function getCell(cd: Grid.ColDef): HTMLElement {
     className: styles.headerCell
   });
 
-  cell.innerHTML = cd.title;
+  const content = createBasicElement({
+    type: "div",
+    className: styles.headerContent
+  });
+
+  cell.appendChild(content);
+
+  const title = createBasicElement({
+    type: "span"
+  });
+
+  title.innerHTML = cd.title;
+
+  content.appendChild(title);
+
+  if (cd.isSortable) {
+    const sortIcon = createBasicElement({
+      type: "span",
+      className: styles.sortIcon
+    });
+
+    content.appendChild(sortIcon);
+  }
 
   return cell;
 }
